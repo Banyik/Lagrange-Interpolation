@@ -1,0 +1,10 @@
+C:\Users\lenovo\source\repos\LI\LI\bin\Debug\LI.exe.config
+C:\Users\lenovo\source\repos\LI\LI\bin\Debug\LI.exe
+C:\Users\lenovo\source\repos\LI\LI\bin\Debug\LI.pdb
+C:\Users\lenovo\source\repos\LI\LI\obj\Debug\LI.csproj.AssemblyReference.cache
+C:\Users\lenovo\source\repos\LI\LI\obj\Debug\LI.Form1.resources
+C:\Users\lenovo\source\repos\LI\LI\obj\Debug\LI.Properties.Resources.resources
+C:\Users\lenovo\source\repos\LI\LI\obj\Debug\LI.csproj.GenerateResource.cache
+C:\Users\lenovo\source\repos\LI\LI\obj\Debug\LI.csproj.CoreCompileInputs.cache
+C:\Users\lenovo\source\repos\LI\LI\obj\Debug\LI.exe
+C:\Users\lenovo\source\repos\LI\LI\obj\Debug\LI.pdb
