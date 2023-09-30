@@ -151,19 +151,19 @@ namespace LI
             int limit1 = sliderCanvas.Width - 10;
             if(currentSlider != null)
             {
-                if(Sliders.sliders.Count > 2)
+                if(Sliders.sliders.Count > 1)
                 {
-                    if (currentSlider.Equals(Sliders.sliders.First()))
+                    int index = Sliders.sliders.IndexOf(currentSlider);
+                    if (index == 0)
                     {
                         limit1 = Sliders.sliders[1].P0.X;
                     }
-                    else if(currentSlider.Equals(Sliders.sliders.Last()))
+                    else if(index == Sliders.sliders.Count - 1)
                     {
-                        limit0 = Sliders.sliders[Sliders.sliders.Count - 2].P0.X;
+                        limit0 = Sliders.sliders[index - 1].P0.X;
                     }
                     else
                     {
-                        int index = Sliders.sliders.IndexOf(currentSlider);
                         limit0 = Sliders.sliders[index - 1].P0.X;
                         limit1 = Sliders.sliders[index + 1].P0.X;
                     }
