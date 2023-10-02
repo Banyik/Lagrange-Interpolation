@@ -17,6 +17,8 @@ namespace LI
         Graphics canvasG;
         Graphics sliderG;
         Slider currentSlider;
+        Point currentPoint = Point.Empty;
+        bool grabbedPoint;
         public Form1()
         {
             InitializeComponent();
@@ -82,7 +84,20 @@ namespace LI
             switch (e.Button)
             {
                 case MouseButtons.Left:
-                    if (Sliders.clickCount < 10)
+                    currentPoint = Point.Empty;
+                    grabbedPoint = false;
+                    foreach (var point in Points.points)
+                    {
+                        if (
+                           point.X - 3 <= e.X && point.X + 6 > e.X &&
+                           point.Y - 3 <= e.Y && point.Y + 6 > e.Y)
+                        {
+                            currentPoint = point;
+                            grabbedPoint = true;
+                            break;
+                        }
+                    }
+                    if (!grabbedPoint && Sliders.clickCount < 10)
                     {
                         Sliders.AddSlider(sliderCanvas);
                         Points.AddPoint(new Point(e.X, e.Y));
@@ -93,7 +108,7 @@ namespace LI
                 case MouseButtons.None:
                     break;
                 case MouseButtons.Right:
-                    Point currentPoint = Point.Empty;
+                    currentPoint = Point.Empty;
                     foreach (var point in Points.points)
                     {
                         if (
@@ -183,6 +198,26 @@ namespace LI
         {
             currentSlider = null;
             sliderCanvas.Invalidate();
+        }
+
+        private void canvas_MouseMove(object sender, MouseEventArgs e)
+        {
+            if(grabbedPoint && currentPoint != Point.Empty)
+            {
+                int index = Points.points.IndexOf(currentPoint);
+                if(index != -1)
+                {
+                    Points.points[index] = new Point(e.X, e.Y);
+                    currentPoint = Points.points[index];
+                    canvas.Invalidate();
+                }
+            }
+        }
+
+        private void canvas_MouseUp(object sender, MouseEventArgs e)
+        {
+            grabbedPoint = false;
+            currentPoint = Point.Empty;
         }
     }
 }
